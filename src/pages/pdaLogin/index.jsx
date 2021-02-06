@@ -1,17 +1,14 @@
 import React, { Component } from 'react'
 import { View } from '@tarojs/components'
 import { AtButton, AtInput } from 'taro-ui'
-import Taro from '@tarojs/taro'
 
 import './index.scss'
 import { padLogin } from '../../api/login'
-import { saveCache } from '../../utils/taro-api'
 
 export default class Index extends Component {
 
   componentDidMount () {
     console.log('componentDidMount')
-    saveCache('a', '1')
   }
 
   componentWillUnmount () { }
