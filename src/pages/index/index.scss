@@ -1,0 +1,74 @@
+.fixed-top {
+  position: relative;
+  top: 0;
+  z-index: 10;
+  height: 80px;
+  width: 100vw;
+  background-color: #fff;
+  font-size: 28px;
+}
+
+.tags {
+  box-sizing: border-box;
+  padding:  6px 20px;
+  background-color: #fff;
+}
+
+.tag + .tag {
+  margin-left: 10px;
+}
+
+.patient {
+
+  &-list {
+    border-top: 10px solid #fff;
+    // border-bottom: 10px solid #fff;
+    flex-wrap: wrap;
+  }
+
+  &-item {
+    min-width: 50%;
+    max-width: 50%;
+    height: 140px;
+    padding: 24px 12px 28px 30px;
+    box-sizing: border-box;
+    background-color: #fff;
+  }  
+
+  &-circle {
+    min-width: 82px;
+    height: 82px;
+    margin-right: 10px;
+  }
+
+  &-name {
+    font-size: 28px;
+    font-weight: 400;
+    color: #323233;
+    line-height: 40px;
+  }
+
+
+  &-days {
+    width: 62px;
+    height: 32px;
+    background: #7DCE7F;
+    border-radius: 4px;
+    margin-left: 10px;
+    text-align: center;
+    line-height: 32px;
+    font-size: 24px;
+    color: #fff;
+  }
+
+  &-no {
+    margin-top: 16px;
+    font-size: 24px;
+    font-weight: 400;
+    color: #969799;
+    line-height: 32px;
+  }
+}
+
+
+
