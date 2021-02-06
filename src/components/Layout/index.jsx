@@ -3,7 +3,6 @@ import { View } from '@tarojs/components'
  
 class Layout extends Component {
   render () {
-    console.log(this.props)
     return (
       <View className='container'>
         sadf

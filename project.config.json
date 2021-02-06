@@ -56,7 +56,7 @@
       "list": [
         {
           "name": "登录",
-          "pathName": "pages/login/index",
+          "pathName": "pages/pdaLogin/index",
           "query": "",
           "scene": null
         }

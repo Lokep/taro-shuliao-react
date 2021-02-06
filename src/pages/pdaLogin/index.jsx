@@ -4,10 +4,9 @@ import { AtButton, AtInput } from 'taro-ui'
 import Taro from '@tarojs/taro'
 
 import './index.scss'
+import { padLogin } from '../../api/login'
 
 export default class Index extends Component {
-
-  // componentWillMount () { }
 
   componentDidMount () {
     console.log('componentDidMount')
@@ -23,20 +22,12 @@ export default class Index extends Component {
   componentDidHide () { }
 
   login() {
-    Taro.request({
-      header: {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-      },
-      url: '/hug_interview/loginCheck.htm',
-      data: {
-        'userDTO.account': 'mis_loutn',
-        'userDTO.password': 123456,
-        'userDTO.remember': 1,
-      },
-      method: 'post',
-      success: res => {
-        console.log(res)
-      }
+    return padLogin({
+      'userDTO.account': 'mis_loutn',
+      'userDTO.password': 123456,
+      'userDTO.remember': 1,
+    }).then(res => {
+      
     })
   }
 

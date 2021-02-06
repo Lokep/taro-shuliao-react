@@ -104,7 +104,7 @@ export default class ProgresCanvas extends Component {
     const { data } = this.props;
     const env = getEnv()
 
-    if (env === 'WEB') {
+    if (env === 'web') {
       return (
         <View className={styles.progress_box} style={{ zIndex: 1 }}>
           <Image src={this.state.imageUrl} className={styles.img} />

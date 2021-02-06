@@ -1,5 +1,5 @@
 export default {
-  pages: ['pages/account/index','pages/course/index','pages/department/index','pages/index/index','pages/login/index','pages/mine/index','pages/patient/index'],
+  pages: ['pages/account/index', 'pages/course/index', 'pages/department/index', 'pages/index/index', 'pages/pdaLogin/index', 'pages/mine/index', 'pages/patient/index'],
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#fff',

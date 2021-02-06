@@ -37,6 +37,7 @@
   "author": "",
   "dependencies": {
     "@babel/runtime": "^7.12.13",
+    "@tarojs/async-await": "^2.2.10",
     "@tarojs/cli": "3.0.25",
     "@tarojs/components": "3.0.25",
     "@tarojs/react": "3.0.25",

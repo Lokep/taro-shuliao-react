@@ -8,7 +8,7 @@ import Taro, {
  * ENV_TYPE.WEAPP 微信小程序环境
  * ENV_TYPE.WEB WEB(H5)环境
  */
-export const getEnv = () => Taro.getEnv()
+export const getEnv = () => Taro.getEnv().toLocaleLowerCase()
 
 
 /**
@@ -46,7 +46,7 @@ export const getSystemInfo = params => {
 // 检查更新
 export const checkAppUpdate = () => {
   // 仅在小程序中检查更新
-  if (getEnv !== 'WEAPP') return
+  if (getEnv !== 'weapp') return
 
   const updateManager = Taro.getUpdateManager()
   updateManager.onCheckForUpdate(function (res) {
@@ -75,3 +75,16 @@ export const checkAppUpdate = () => {
 
 }
 
+export const handleNotWeappEnv = () => {
+  if (getEnv() !== 'weapp') {
+    console.error('很抱歉，您当前不是weapp环境')
+    return false
+  }
+}
+
+export const handleNotWebEnv = () => {
+  if (getEnv() !== 'web') {
+    console.error('很抱歉，您当前不是web环境')
+    return false
+  }
+}

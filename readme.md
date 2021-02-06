@@ -21,7 +21,10 @@
 ```
 
 # 温馨提示
-初期开发者提供了`plop`指令，可以简化新建页面、组件的操作，只需执行`npm run plop`，按照流程走即可
+
+- 初期开发者提供了`plop`指令，可以简化新建页面、组件的操作，只需执行`npm run plop`，按照流程走即可
+
+- 开发时要避开使用 `componentDidMount`
 
 # 打包
 打包时按照要求进行 `npm run build:weapp`， `npm run build:h5`
