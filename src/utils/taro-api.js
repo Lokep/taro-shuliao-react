@@ -43,38 +43,10 @@ export const getSystemInfo = params => {
   }
 }
 
-// 检查更新
-export const checkAppUpdate = () => {
-  // 仅在小程序中检查更新
-  if (getEnv !== 'weapp') return
 
-  const updateManager = Taro.getUpdateManager()
-  updateManager.onCheckForUpdate(function (res) {
-    // 请求完新版本信息的回调
-    console.log('[应用有新的版本]', res.hasUpdate)
-    updateManager.onUpdateReady(function () {
-      Taro.showModal({
-        title: '更新提示',
-        content: '新版本已经准备好，是否重启应用？',
-        success: function (res) {
-          if (res.confirm) {
-            // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
-            updateManager.applyUpdate()
-          }
-        }
-      })
-    })
-    updateManager.onUpdateFailed(function () {
-      // 新的版本下载失败
-      Taro.showModal({
-        title: '发现新版本',
-        content: '请删除当前小程序，重新搜索打开...',
-      })
-    })
-  })
-
-}
-
+/**
+ * 以下两个方法，为处理环境不匹配对情况，主要是对开发者作出提示
+ */
 export const handleNotWeappEnv = () => {
   if (getEnv() !== 'weapp') {
     console.error('很抱歉，您当前不是weapp环境')
@@ -88,3 +60,25 @@ export const handleNotWebEnv = () => {
     return false
   }
 }
+
+
+/**
+ * 本地缓存
+ */
+export const saveCache = (...rest) => {
+  if (!rest.length) {
+    console.error('saveCache方法，参数不可为空')
+  } else if (rest.length == 1 && typeof rest[0] === 'object' && !Array.isArray(rest[0])) {
+    Taro.setStorageSync(Object.keys(rest[0])[0], Object.values(rest[0])[0])
+  } else if (rest.length == 2) {
+    let key = typeof rest[0] == 'string' ? rest[0] : JSON.stringify(rest[0])
+    let val = typeof rest[1] == 'string' ? rest[1] : JSON.stringify(rest[1])
+
+    Taro.setStorageSync(key, val)
+  }
+}
+
+
+export const getCache = key => Taro.getStorageSync(key) || false
+
+

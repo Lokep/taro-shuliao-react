@@ -44,6 +44,36 @@ export const getSetting = () => {
 }
 
 
+// 检查更新
+export const checkAppUpdate = () => {
+  if (!handleNotWeappEnv()) return false
+
+  const updateManager = Taro.getUpdateManager()
+  updateManager.onCheckForUpdate(function (res) {
+    // 请求完新版本信息的回调
+    console.log('[应用有新的版本]', res.hasUpdate)
+    updateManager.onUpdateReady(function () {
+      Taro.showModal({
+        title: '更新提示',
+        content: '新版本已经准备好，是否重启应用？',
+        success: function (res) {
+          if (res.confirm) {
+            // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
+            updateManager.applyUpdate()
+          }
+        }
+      })
+    })
+    updateManager.onUpdateFailed(function () {
+      // 新的版本下载失败
+      Taro.showModal({
+        title: '发现新版本',
+        content: '请删除当前小程序，重新搜索打开...',
+      })
+    })
+  })
+
+}
 
 /**
  * 获取用户信息

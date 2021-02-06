@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './app.scss'
 import "taro-ui/dist/style/components/index.scss"
-import { checkAppUpdate, setScssEnv } from './utils/taro-api'
+import { checkAppUpdate } from './utils/wx-api'
 
 class App extends Component {
 
