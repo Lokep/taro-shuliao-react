@@ -4,11 +4,13 @@ import { AtButton, AtInput } from 'taro-ui'
 
 import './index.scss'
 import { padLogin } from '../../api/login'
+import { log } from '../../utils/pretty-log'
+
 
 export default class Index extends Component {
 
   componentDidMount () {
-    console.log('componentDidMount')
+    log.primary('componentDidMount', true)
   }
 
   componentWillUnmount () { }
